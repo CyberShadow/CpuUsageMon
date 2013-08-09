@@ -125,7 +125,7 @@ void main(string[] args)
 void sleepUntilNextSecond()
 {
 	auto now = GetTickCount();
-	auto nextSecond = (GetTickCount() / 1000 + 1) * 1000;
+	auto nextSecond = (now / 1000 + 1) * 1000;
 	do
 	{
 		Sleep(nextSecond - now);
