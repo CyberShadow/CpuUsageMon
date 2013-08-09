@@ -88,7 +88,7 @@ void main(string[] args)
 			auto kernelFraction = cast(real)kernelDelta / delta;
 			auto   userFraction = cast(real)  userDelta / delta;
 
-			auto str = format("[%s] %-*s %5.2f%% [", timeStr, maxExeLength, pi.exeName, (kernelFraction+userFraction)*100);
+			auto str = format("[%s] %-*s %6.2f%% [", timeStr, maxExeLength, pi.exeName, (kernelFraction+userFraction)*100);
 			auto barWidth = width - str.length - 2;
 			auto kernelEnd = cast(int)(kernelFraction * barWidth);
 			auto userEnd   = cast(int)(  userFraction * barWidth) + kernelEnd;
