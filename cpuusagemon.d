@@ -76,12 +76,12 @@ void main(string[] args)
 		auto delta = makeUlong(time.tupleof) - makeUlong(lastTime.tupleof);
 		auto timeStr = formatTime("H:i:s", FILETIMEToSysTime(cast(core.sys.windows.windows.FILETIME*)&time, UTC()));
 
-	    CONSOLE_SCREEN_BUFFER_INFO csbi;
-	    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-	    auto width = csbi.dwSize.X;
+		CONSOLE_SCREEN_BUFFER_INFO csbi;
+		GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+		auto width = csbi.dwSize.X;
 
-	    if (processInfo.length && lastProcessCount==0)
-	    	writeln();
+		if (processInfo.length && lastProcessCount==0)
+			writeln();
 
 		foreach (ref pi; processInfo)
 		{
