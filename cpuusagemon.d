@@ -30,6 +30,7 @@ void main(string[] args)
 	FILETIME lastTime;
 
 	int maxExeLength;
+	int lastProcessCount = -1;
 
 	while (true)
 	{
@@ -79,6 +80,9 @@ void main(string[] args)
 	    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
 	    auto width = csbi.dwSize.X;
 
+	    if (processInfo.length && lastProcessCount==0)
+	    	writeln();
+
 		foreach (ref pi; processInfo)
 		{
 			auto next = pi;
@@ -111,6 +115,7 @@ void main(string[] args)
 			writeln();
 
 		lastTime = time;
+		lastProcessCount = processInfo.length;
 
 		sleepUntilNextSecond();
 	}
